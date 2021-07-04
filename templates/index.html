@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Covid Detection</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Covid 19 Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<div>
+		<label for="cars">Do you have Fever?</label>  
+		<select name="fever">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Do you have Tiredness?</label>  
+		<select name="Tiredness">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Do you have Dry-Cough?</label>  
+		<select name="Dry-Cough">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Do you have Difficulty-in-Breathing?</label>  
+		<select name="Difficulty-in-Breathing">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Do you have Sore-Throat?</label>  
+		<select name="Sore-Throat">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Do you have Pain?</label>  
+		<select name="pain">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Do you have Nasal-Congestion?</label>  
+		<select name="nasal_cong">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Do you have Runny Nose?</label>  
+		<select name="RN">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Do you have Diarrhea?</label>  
+		<select name="diarrhea">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Is your age between 0-9?</label>  
+		<select name="age9">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Is your age between 10-19?</label>  
+		<select name="age19">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Is your age between 19-24?</label>  
+		<select name="age24">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Is your age between 25-59?</label>  
+		<select name="age59">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Is your age 60+?</label>  
+		<select name="age60">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Are you Male? </label>  
+		<select name="genderm">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Are you Female? </label>  
+		<select name="genderf">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		<div>
+		<label for="cars">Are you Transgender? </label>  
+		<select name="gendert">
+		  <option value="True">Yes</option>
+		  <option value="False">No</option>
+		</select>
+		</div>
+		
+		
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
